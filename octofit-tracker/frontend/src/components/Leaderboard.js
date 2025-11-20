@@ -11,8 +11,10 @@ const Leaderboard = () => {
       .then(res => res.json())
       .then(data => {
         const results = data.results || data;
-        setLeaderboard(results);
-        console.log('Fetched leaderboard:', results);
+        // Sort by points descending
+        const sorted = results.sort((a, b) => b.points - a.points);
+        setLeaderboard(sorted);
+        console.log('Fetched leaderboard:', sorted);
       });
   }, [apiUrl]);
 
@@ -23,6 +25,7 @@ const Leaderboard = () => {
         <table className="table table-striped table-bordered">
           <thead className="table-primary">
             <tr>
+              <th>Rank</th>
               <th>Team</th>
               <th>Points</th>
             </tr>
@@ -30,8 +33,9 @@ const Leaderboard = () => {
           <tbody>
             {leaderboard.map((entry, idx) => (
               <tr key={idx}>
-                <td>{entry.team?.name}</td>
-                <td>{entry.points}</td>
+                <td className="fw-bold">{idx + 1}</td>
+                <td>{entry.team_name}</td>
+                <td className="text-end">{entry.points}</td>
               </tr>
             ))}
           </tbody>

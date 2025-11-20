@@ -1,5 +1,11 @@
-import logo from './logo.svg';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import './App.css';
+import Activities from './components/Activities';
+import Leaderboard from './components/Leaderboard';
+import Teams from './components/Teams';
+import Users from './components/Users';
+import Workouts from './components/Workouts';
 
 function App() {
   return (
@@ -7,7 +13,7 @@ function App() {
       <div className="container">
         <nav className="navbar navbar-expand-lg navbar-dark bg-primary mb-4">
           <Link className="navbar-brand text-white d-flex align-items-center" to="/">
-            <img src="/octofitapp-small.png" alt="Octofit Logo" />
+            <img src="/octofitapp-small.png" alt="Octofit Logo" style={{height: '40px', marginRight: '10px'}} />
             Octofit Tracker
           </Link>
           <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -33,25 +39,6 @@ function App() {
         </Routes>
       </div>
     </Router>
-  );
-}
-
-export default App;
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
   );
 }
 
